@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <div className="hero min-h-screen text-white p-10">
       <div className="hero-content flex-col md:flex-row-reverse">
-        <img
+        <Image
           src="/assets/landing-page/Herophone.png"
+          alt="Phone"
           className="max-w-sm mbg-transparent w-full max-w-md 
                      md:max-w-md lg:max-w-md h-auto drop-shadow-[0_0_20px_rgba(0,255,255,0.8)] 
                      transition-all duration-300 ease-in-out

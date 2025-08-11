@@ -1,5 +1,6 @@
 import LightRays from "../LightRays/LightRays";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -20,19 +21,19 @@ export default function Navbar() {
 
       <div className="navbar bg-transparent backdrop-blur-md bg-opacity-10 shadow-sm text-white">
         <div className="navbar-start">
-          <a
+          <Link
             href="/"
             className="btn btn-soft bg-transparent border-transparent text-xl font-anta  flex flex-row items-center gap-1 cursor-pointer rounded transition-transform transition-colors duration-200 ease-out
                         hover:scale-105 hover:brightness-125 hover:drop-shadow-lg"
           >
-            <img
+            <Image
               src="/assets/logo/Rahamo-gradasi.png"
               alt="Logo"
               width={30}
               height={30}
             />
             RahaMO.
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-monda">
