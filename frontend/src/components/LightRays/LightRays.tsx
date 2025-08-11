@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { Renderer, Program, Triangle, Mesh } from "ogl";
+
+import {
+  Mesh as OGLMesh,
+  Renderer as OGLRenderer,
+  Program as OGLProgram,
+  Triangle as OGLTriangle,
+} from "ogl";
 
 export type RaysOrigin =
   | "top-center"
@@ -84,12 +90,12 @@ const LightRays: React.FC<LightRaysProps> = ({
   className = "",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const uniformsRef = useRef<any>(null);
-  const rendererRef = useRef<Renderer | null>(null);
+  const uniformsRef = useRef<Record<string, { value: unknown }> | null>(null);
+  const rendererRef = useRef<OGLRenderer | null>(null);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const smoothMouseRef = useRef({ x: 0.5, y: 0.5 });
   const animationIdRef = useRef<number | null>(null);
-  const meshRef = useRef<any>(null);
+  const meshRef = useRef<OGLMesh | null>(null);
   const cleanupFunctionRef = useRef<(() => void) | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -130,7 +136,7 @@ const LightRays: React.FC<LightRaysProps> = ({
 
       if (!containerRef.current) return;
 
-      const renderer = new Renderer({
+      const renderer = new OGLRenderer({
         dpr: Math.min(window.devicePixelRatio, 2),
         alpha: true,
       });
@@ -268,13 +274,13 @@ void main() {
       };
       uniformsRef.current = uniforms;
 
-      const geometry = new Triangle(gl);
-      const program = new Program(gl, {
+      const geometry = new OGLTriangle(gl);
+      const program = new OGLProgram(gl, {
         vertex: vert,
         fragment: frag,
         uniforms,
       });
-      const mesh = new Mesh(gl, { geometry, program });
+      const mesh = new OGLMesh(gl, { geometry, program });
       meshRef.current = mesh;
 
       const updatePlacement = () => {

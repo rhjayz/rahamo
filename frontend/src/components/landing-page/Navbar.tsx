@@ -1,4 +1,5 @@
 import LightRays from "../LightRays/LightRays";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -36,13 +37,13 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-monda">
             <li>
-              <a>Home</a>
+              <Link href="/home">Home</Link>
             </li>
             <li>
-              <a>Community</a>
+              <Link href="/home">Community</Link>
             </li>
             <li>
-              <a>Teams</a>
+              <Link href="/home">Learn</Link>
             </li>
           </ul>
         </div>
