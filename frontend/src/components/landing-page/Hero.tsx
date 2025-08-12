@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <div className="hero min-h-screen text-white p-10">
       <div className="hero-content flex-col md:flex-row-reverse">
-        <Image
+        <img
           src="/assets/landing-page/Herophone.png"
           alt="Phone"
           className="max-w-sm mbg-transparent w-full max-w-md 
