@@ -35,16 +35,16 @@ export default function KeyFeature() {
         <h2 className="text-white font-anta text-3xl text-center mb-15">
           Key Features of Our Blockchain Technology
         </h2>
-        <div className="flex flex-row items-center justify-center font-monda text-white gap-20">
+        <div className="flex flex-row items-center justify-center font-monda text-white gap-30">
           <DotLottieReact
             src="/assets/animation/blockchaincurrency.lottie"
             loop
             autoplay
-            className="w-85 h-85"
+            className="w-90 h-90"
           />
           <div className="flex flex-col gap-3 text-justify ">
             {data.map((item, i) => (
-              <div key={i} className="w-82 ">
+              <div key={i} className="w-90 ">
                 <p className="font-bold text-xl">{item.name}</p>
                 <span className="text-sm">{item.desc}</span>
               </div>
